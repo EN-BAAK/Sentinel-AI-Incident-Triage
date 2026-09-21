@@ -1,0 +1,26 @@
+[project]
+name = "sentinel-ai-incident-triage"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "EN-BAAK", email = "swaiengineer@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+]
+
+[project.scripts]
+sentinel-ai-incident-triage = "sentinel_ai_incident_triage:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+]
