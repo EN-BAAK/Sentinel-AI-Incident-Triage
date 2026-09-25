@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.models.incident import IncidentReport, IncidentRequest
+from app.services.triage import triage_incident
 
 app = FastAPI(
     title="Sentinel",
@@ -14,10 +15,4 @@ async def health() -> dict[str, str]:
 
 @app.post("/incidents", response_model=IncidentReport)
 async def create_incident(incident: IncidentRequest) -> IncidentReport:
-    return IncidentReport(
-        summary=incident.description,
-        evidence=[],
-        hypotheses=[],
-        recommended_steps=[],
-        confidence=0.0,
-    )
+    return triage_incident(incident)
