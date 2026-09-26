@@ -12,4 +12,5 @@ class IncidentReport(BaseModel):
     evidence: list[str]
     hypotheses: list[str]
     recommended_steps: list[str]
+    limitations: list[str]
     confidence: float = Field(ge=0.0, le=1.0)

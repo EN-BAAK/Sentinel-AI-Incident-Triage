@@ -21,9 +21,10 @@ def test_create_incident() -> None:
     assert body["summary"] == (
         "API latency has been increasing for several hours."
     )
-    assert body["evidence"] == []
+    assert body["evidence"] != []
     assert body["hypotheses"] == []
     assert body["recommended_steps"] == []
+    assert body["limitations"] == []
     assert body["confidence"] == 0.0
 
 def test_create_incident_rejects_invalid_input() -> None:
